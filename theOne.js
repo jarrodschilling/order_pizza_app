@@ -21,7 +21,22 @@ const pizzaCrust = "THIN"
 const toppingOne = ""
 const toppingTwo = ""
 const tip = "3.00"
-const orderTime = "2024-05-29 15:30:00"
+const orderTime = "2024-05-30 15:30:00"
+
+const testOrderFunc = {
+  Code: '14THIN',
+  Qty: 1,
+  ID: 1,
+  isNew: 'true',
+  Options: {
+    X: { '1/1': 1 },
+    C: { '1/1': 1 },
+    H: { '1/1': 1 },
+    P: { '1/1': 1 }
+  }
+}
+
+const stringOrderTest = JSON.stringify(testOrderFunc)
 
 // Payment Info
 const cardType = "VISA"
@@ -88,7 +103,7 @@ const response2 = await fetch("https://order.dominos.com/power/validate-order", 
     },
     "referrer": "https://order.dominos.com/assets/build/xdomain/proxy.html",
     "referrerPolicy": "strict-origin-when-cross-origin",
-    "body": `{\"Order\":{\"Address\":{\"Street\":\"${street}\",\"StreetName\":\"${streetName}\",\"StreetNumber\":\"${streetNum}\",\"UnitNumber\":\"${addressLine2}\",\"UnitType\":\"STE\",\"City\":\"${city}\",\"Region\":\"${region}\",\"PostalCode\":\"${zipCode}\",\"Type\":\"Business\",\"OrganizationName\":\"${locationName}\"},\"Coupons\":[],\"CustomerID\":\"\",\"Email\":\"\",\"Extension\":\"\",\"FirstName\":\"\",\"FutureOrderTime\":\"${orderTime}\",\"LastName\":\"\",\"LanguageCode\":\"en\",\"OrderChannel\":\"OLO\",\"OrderID\":\"\",\"OrderMethod\":\"Web\",\"OrderTaker\":null,\"Payments\":[],\"Phone\":\"\",\"PhonePrefix\":\"\",\"Products\":[{\"Code\":\"14THIN\",\"Qty\":1,\"ID\":1,\"isNew\":true,\"Options\":{\"X\":{\"1/1\":\"1\"},\"C\":{\"1/1\":\"1\"},\"P\":{\"1/1\":\"1\"}}}],\"ServiceMethod\":\"Delivery\",\"SourceOrganizationURI\":\"order.dominos.com\",\"StoreID\":\"${storeID}\",\"Tags\":{},\"Version\":\"1.0\",\"NoCombine\":true,\"Partners\":{},\"HotspotsLite\":false,\"OrderInfoCollection\":[]}}`,
+    "body": `{\"Order\":{\"Address\":{\"Street\":\"${street}\",\"StreetName\":\"${streetName}\",\"StreetNumber\":\"${streetNum}\",\"UnitNumber\":\"${addressLine2}\",\"UnitType\":\"STE\",\"City\":\"${city}\",\"Region\":\"${region}\",\"PostalCode\":\"${zipCode}\",\"Type\":\"Business\",\"OrganizationName\":\"${locationName}\"},\"Coupons\":[],\"CustomerID\":\"\",\"Email\":\"\",\"Extension\":\"\",\"FirstName\":\"\",\"FutureOrderTime\":\"${orderTime}\",\"LastName\":\"\",\"LanguageCode\":\"en\",\"OrderChannel\":\"OLO\",\"OrderID\":\"\",\"OrderMethod\":\"Web\",\"OrderTaker\":null,\"Payments\":[],\"Phone\":\"\",\"PhonePrefix\":\"\",\"Products\":[${stringOrderTest}],\"ServiceMethod\":\"Delivery\",\"SourceOrganizationURI\":\"order.dominos.com\",\"StoreID\":\"${storeID}\",\"Tags\":{},\"Version\":\"1.0\",\"NoCombine\":true,\"Partners\":{},\"HotspotsLite\":false,\"OrderInfoCollection\":[]}}`,
     "method": "POST",
     "mode": "cors",
     "credentials": "include"
@@ -239,4 +254,4 @@ console.log(resDataOrder)
 console.log(resDataOrder.Order.Payments)
 console.log(resDataOrder.Order.StatusItems)
 console.log(resDataOrder.Order.Products)
-console.log(resDataOrder.Order.Products.Options)
+console.log(resDataOrder.Order.Products[0].Options)

@@ -1,4 +1,4 @@
-import { body } from "./order.js";
+import { body } from "../order.js";
 const response = await fetch("https://order.dominos.com/power/place-order", {
   "headers": {
     "accept": "application/json, text/javascript, */*; q=0.01",
