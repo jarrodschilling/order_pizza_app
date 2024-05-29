@@ -1,11 +1,18 @@
 // Enter Location + Pizza Order
 
 // Location
-const locationName = "Atomic Fi"
-const street = "2890 E COTTONWOOD PKW"
-const addressLine2 = "400"
-const city = "SALT LAKE CITY"
-const zipCode = "84121-7293"
+const firstName = "BOB"
+const lastName = "BARKER"
+const email = "BOB@EMAIL.COM"
+const phoneNum = "3861686123"
+const typeHomeOrBiz = "Business"
+const locationName = "Harmons Grocery"
+const street = "7755 S 700 E"
+const streetNum = "7755"
+const streetName = "S 700 E"
+const addressLine2 = ""
+const city = "MIDVALE"
+const zipCode = "84047"
 const region = "UT"
 
 // Order
@@ -14,14 +21,15 @@ const pizzaCrust = "THIN"
 const toppingOne = ""
 const toppingTwo = ""
 const tip = "3.00"
+const orderTime = "2024-05-29 15:30:00"
 
 // Payment Info
 const cardType = "VISA"
-const cardNumber = ""
-const cardNumberX = ""
-const cardExp = ""
-const cardCode = ""
-const cardZip = "84121"
+const cardNumber = "4242424242424242"
+const cardNumberX = "424242XXXXXX4242"
+const cardExp = "1234"
+const cardCode = "123"
+const cardZip = "84047"
 
 
 // Get store ID
@@ -80,7 +88,7 @@ const response2 = await fetch("https://order.dominos.com/power/validate-order", 
     },
     "referrer": "https://order.dominos.com/assets/build/xdomain/proxy.html",
     "referrerPolicy": "strict-origin-when-cross-origin",
-    "body": `{\"Order\":{\"Address\":{\"Street\":\"2890 E COTTONWOOD PKWY\",\"StreetName\":\"E COTTONWOOD PKWY\",\"StreetNumber\":\"2890\",\"UnitNumber\":\"400\",\"UnitType\":\"STE\",\"City\":\"SALT LAKE CITY\",\"Region\":\"UT\",\"PostalCode\":\"${zipCode}\",\"Type\":\"Business\",\"OrganizationName\":\"Atomic Fi\"},\"Coupons\":[],\"CustomerID\":\"\",\"Email\":\"\",\"Extension\":\"\",\"FirstName\":\"\",\"FutureOrderTime\":\"2024-05-24 11:30:00\",\"LastName\":\"\",\"LanguageCode\":\"en\",\"OrderChannel\":\"OLO\",\"OrderID\":\"\",\"OrderMethod\":\"Web\",\"OrderTaker\":null,\"Payments\":[],\"Phone\":\"\",\"PhonePrefix\":\"\",\"Products\":[{\"Code\":\"14THIN\",\"Qty\":1,\"ID\":1,\"isNew\":true,\"Options\":{\"X\":{\"1/1\":\"1\"},\"C\":{\"1/1\":\"1\"},\"P\":{\"1/1\":\"1\"}}}],\"ServiceMethod\":\"Delivery\",\"SourceOrganizationURI\":\"order.dominos.com\",\"StoreID\":\"${storeID}\",\"Tags\":{},\"Version\":\"1.0\",\"NoCombine\":true,\"Partners\":{},\"HotspotsLite\":false,\"OrderInfoCollection\":[]}}`,
+    "body": `{\"Order\":{\"Address\":{\"Street\":\"${street}\",\"StreetName\":\"${streetName}\",\"StreetNumber\":\"${streetNum}\",\"UnitNumber\":\"${addressLine2}\",\"UnitType\":\"STE\",\"City\":\"${city}\",\"Region\":\"${region}\",\"PostalCode\":\"${zipCode}\",\"Type\":\"Business\",\"OrganizationName\":\"${locationName}\"},\"Coupons\":[],\"CustomerID\":\"\",\"Email\":\"\",\"Extension\":\"\",\"FirstName\":\"\",\"FutureOrderTime\":\"${orderTime}\",\"LastName\":\"\",\"LanguageCode\":\"en\",\"OrderChannel\":\"OLO\",\"OrderID\":\"\",\"OrderMethod\":\"Web\",\"OrderTaker\":null,\"Payments\":[],\"Phone\":\"\",\"PhonePrefix\":\"\",\"Products\":[{\"Code\":\"14THIN\",\"Qty\":1,\"ID\":1,\"isNew\":true,\"Options\":{\"X\":{\"1/1\":\"1\"},\"C\":{\"1/1\":\"1\"},\"P\":{\"1/1\":\"1\"}}}],\"ServiceMethod\":\"Delivery\",\"SourceOrganizationURI\":\"order.dominos.com\",\"StoreID\":\"${storeID}\",\"Tags\":{},\"Version\":\"1.0\",\"NoCombine\":true,\"Partners\":{},\"HotspotsLite\":false,\"OrderInfoCollection\":[]}}`,
     "method": "POST",
     "mode": "cors",
     "credentials": "include"
@@ -114,7 +122,7 @@ const responsePricing = await fetch("https://order.dominos.com/power/price-order
   },
   "referrer": "https://order.dominos.com/assets/build/xdomain/proxy.html",
   "referrerPolicy": "strict-origin-when-cross-origin",
-  "body": `{\"Order\":{\"Address\":{\"Street\":\"2890 E COTTONWOOD PKWY\",\"StreetName\":\"E COTTONWOOD PKWY\",\"StreetNumber\":\"2890\",\"UnitNumber\":\"400\",\"UnitType\":\"STE\",\"City\":\"SALT LAKE CITY\",\"Region\":\"UT\",\"PostalCode\":\"84121-7293\",\"Type\":\"Business\",\"OrganizationName\":\"Atomic Fi\"},\"Coupons\":[],\"CustomerID\":\"\",\"Email\":\"\",\"Extension\":\"\",\"FirstName\":\"\",\"FutureOrderTime\":\"2024-05-24 15:30:00\",\"LastName\":\"\",\"LanguageCode\":\"en\",\"OrderChannel\":\"OLO\",\"OrderID\":\"${orderId}\",\"OrderMethod\":\"Web\",\"OrderTaker\":null,\"Payments\":[],\"Phone\":\"\",\"PhonePrefix\":\"\",\"Products\":[{\"Code\":\"14THIN\",\"Qty\":1,\"ID\":1,\"isNew\":true,\"ShowBestPriceMessage\":false,\"Options\":{\"X\":{\"1/1\":\"1\"},\"C\":{\"1/1\":\"1\"},\"P\":{\"1/1\":\"1\"}}}],\"ServiceMethod\":\"Delivery\",\"SourceOrganizationURI\":\"order.dominos.com\",\"StoreID\":\"9115\",\"Tags\":{},\"Version\":\"1.0\",\"NoCombine\":true,\"Partners\":{},\"HotspotsLite\":false,\"OrderInfoCollection\":[],\"metaData\":{\"dtmOrder\":false,\"orderFunnel\":\"payments\"}}}`,
+  "body": `{\"Order\":{\"Address\":{\"Street\":\"${street}\",\"StreetName\":\"${streetName}\",\"StreetNumber\":\"${streetNum}\",\"UnitNumber\":\"${addressLine2}\",\"UnitType\":\"STE\",\"City\":\"${city}\",\"Region\":\"${city}\",\"PostalCode\":\"${zipCode}\",\"Type\":\"${typeHomeOrBiz}\",\"OrganizationName\":\"${locationName}\"},\"Coupons\":[],\"CustomerID\":\"\",\"Email\":\"\",\"Extension\":\"\",\"FirstName\":\"\",\"FutureOrderTime\":\"${orderTime}\",\"LastName\":\"\",\"LanguageCode\":\"en\",\"OrderChannel\":\"OLO\",\"OrderID\":\"${orderId}\",\"OrderMethod\":\"Web\",\"OrderTaker\":null,\"Payments\":[],\"Phone\":\"\",\"PhonePrefix\":\"\",\"Products\":[{\"Code\":\"14THIN\",\"Qty\":1,\"ID\":1,\"isNew\":true,\"ShowBestPriceMessage\":false,\"Options\":{\"X\":{\"1/1\":\"1\"},\"C\":{\"1/1\":\"1\"},\"P\":{\"1/1\":\"1\"}}}],\"ServiceMethod\":\"Delivery\",\"SourceOrganizationURI\":\"order.dominos.com\",\"StoreID\":\"${storeID}\",\"Tags\":{},\"Version\":\"1.0\",\"NoCombine\":true,\"Partners\":{},\"HotspotsLite\":false,\"OrderInfoCollection\":[],\"metaData\":{\"dtmOrder\":false,\"orderFunnel\":\"payments\"}}}`,
   "method": "POST",
   "mode": "cors",
   "credentials": "include"
@@ -218,7 +226,7 @@ const responseOrder = await fetch("https://order.dominos.com/power/place-order",
   },
   "referrer": "https://order.dominos.com/assets/build/xdomain/proxy.html",
   "referrerPolicy": "strict-origin-when-cross-origin",
-  "body": `{"Order":{"Address":{"Street":"2890 E COTTONWOOD PKWY","StreetName":"E COTTONWOOD PKWY","StreetNumber":"2890","UnitNumber":"400","UnitType":"STE","City":"SALT LAKE CITY","Region":"UT","PostalCode":"84121-7293","Type":"Business","OrganizationName":"Atomic Fi"},"Coupons":[],"CustomerID":"","Email":"jarrodschilling@gmail.com","Extension":"","FirstName":"JARROD","FutureOrderTime":"2024-05-24 12:30:00","LastName":"SCHILLING","LanguageCode":"en","OrderChannel":"OLO","OrderID":"${orderId}","OrderMethod":"Web","OrderTaker":null,"Payments":[{"Type":"CreditCard","Amount":${customerPayment},"Number":"${cardNumberX}","CardType":"${cardType}","Expiration":"${cardExp}","SecurityCode":"${cardCode}","PostalCode":"${cardZip}","ProviderID":"","PaymentMethodID":"","OTP":"","gpmPaymentType":"","isNew":true,"TipAmount":${tip},"Token":"${finalToken}","TokenType":"ACI"}],"Phone":"9415449629","PhonePrefix":"","Products":[{"Code":"14THIN","Qty":1,"ID":1,"isNew":true,"ShowBestPriceMessage":false,"Options":{"X":{"1/1":"1"},"C":{"1/1":"1"},"P":{"1/1":"1"}}}],"ServiceMethod":"Delivery","SourceOrganizationURI":"order.dominos.com","StoreID":"9115","Tags":{},"Version":"1.0","NoCombine":true,"Partners":{},"HotspotsLite":false,"OrderInfoCollection":[],"NewUser":true,"metaData":{"dtmOrder":false,"DPZDNT":null,"DPZ_TTP":null,"DPZ_TTCALLBACK":null,"screen_dimensions":{"height":956,"width":1470},"PiePassPickup":false,"calculateNutrition":"true","orderFunnel":"payments","OrderReadyTime":{"source":"DELTA","deltaLowerBound":37,"deltaUpperBound":42},"isDomChat":0,"ABTests":["ECOM-89656-Ctrl","ECOM-87264-Ctrl","ECOM-79102-ExpB"]}}}`,
+  "body": `{"Order":{"Address":{"Street":"${street}","StreetName":"${streetName}","StreetNumber":"${streetNum}","UnitNumber":"${addressLine2}","UnitType":"STE","City":"${city}","Region":"${region}","PostalCode":"${region}","Type":"${typeHomeOrBiz}","OrganizationName":"${locationName}"},"Coupons":[],"CustomerID":"","Email":"${email}","Extension":"","FirstName":"${firstName}","FutureOrderTime":"${orderTime}","LastName":"${lastName}","LanguageCode":"en","OrderChannel":"OLO","OrderID":"${orderId}","OrderMethod":"Web","OrderTaker":null,"Payments":[{"Type":"CreditCard","Amount":${customerPayment},"Number":"${cardNumberX}","CardType":"${cardType}","Expiration":"${cardExp}","SecurityCode":"${cardCode}","PostalCode":"${cardZip}","ProviderID":"","PaymentMethodID":"","OTP":"","gpmPaymentType":"","isNew":true,"TipAmount":${tip},"Token":"${finalToken}","TokenType":"ACI"}],"Phone":"${phoneNum}","PhonePrefix":"","Products":[{"Code":"14THIN","Qty":1,"ID":1,"isNew":true,"ShowBestPriceMessage":false,"Options":{"X":{"1/1":"1"},"C":{"1/1":"1"},"P":{"1/1":"1"}}}],"ServiceMethod":"Delivery","SourceOrganizationURI":"order.dominos.com","StoreID":"${storeID}","Tags":{},"Version":"1.0","NoCombine":true,"Partners":{},"HotspotsLite":false,"OrderInfoCollection":[],"NewUser":true,"metaData":{"dtmOrder":false,"DPZDNT":null,"DPZ_TTP":null,"DPZ_TTCALLBACK":null,"screen_dimensions":{"height":956,"width":1470},"PiePassPickup":false,"calculateNutrition":"true","orderFunnel":"payments","OrderReadyTime":{"source":"DELTA","deltaLowerBound":37,"deltaUpperBound":42},"isDomChat":0,"ABTests":["ECOM-89656-Ctrl","ECOM-87264-Ctrl","ECOM-79102-ExpB"]}}}`,
   "method": "POST",
   "mode": "cors",
   "credentials": "include"
@@ -228,6 +236,7 @@ const resDataOrder = await responseOrder.json()
 
 console.log(resDataOrder)
 
-// console.log(resDataOrder.Order.Payments)
-// console.log(resDataOrder.Order.Products)
-// console.log(resDataOrder.Order.Products.Options)
+console.log(resDataOrder.Order.Payments)
+console.log(resDataOrder.Order.StatusItems)
+console.log(resDataOrder.Order.Products)
+console.log(resDataOrder.Order.Products.Options)

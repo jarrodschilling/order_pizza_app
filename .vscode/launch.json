@@ -26,7 +26,7 @@
       // "runtimeVersion": "20",
       "request": "launch",
       "name": "Launch",
-      "program": "${workspaceFolder}/checkPaymentApi.js"
+      "program": "${workspaceFolder}/theOne.js"
     }
   ]
 }

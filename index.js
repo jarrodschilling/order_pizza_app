@@ -1,26 +1,31 @@
 #!/usr/bin/env node
 
-import readline from "readline";
+import { program } from "commander";
+import inquirer from "inquirer";
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
+program.version("1.0.0").description("My CLI App");
 
-const askQuestion = (question) => {
-  return new Promise((resolve) => rl.question(question, resolve));
-};
+const questions = [
+  {
+    type: "input",
+    name: "name",
+    message: "What is your name?",
+  },
+  {
+    type: "input",
+    name: "age",
+    message: "How old are you?",
+  },
+];
 
-const main = async () => {
-  console.log("Welcome to My CLI App!");
+program
+  .command("ask")
+  .description("Ask user details")
+  .action(async () => {
+    const answers = await inquirer.prompt(questions);
 
-  let name = await askQuestion("What is your name? ");
-  console.log(`Hello, ${name}!`);
+    console.log(`Hello, ${answers.name}!`);
+    console.log(`You are ${answers.age} years old.`);
+  });
 
-  let age = await askQuestion("How old are you? ");
-  console.log(`You are ${age} years old.`);
-
-  rl.close();
-};
-
-main();
+program.parse(process.argv);
